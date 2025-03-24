@@ -1,0 +1,199 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+li {
+  list-style: none;
+
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin:0;
+  
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 2em;
+  background-color: #213547;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.navList ul {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navList ul li a {
+  color: #f9f9f9;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.navList a:hover {
+  color: #646cff;
+  transform: translateY(-6px);
+}
+
+.HeroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 1em;
+  height: calc(100vh - 60px);
+}
+
+.Home_description h2 {
+  color: #646cff;
+  font-size: 3em;
+  border-right: 3px solid #646cff;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(15, end) forwards, blink 0.6s infinite;
+  
+}
+
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 75%;
+  }
+
+}
+
+@keyframes blink{
+  50%{
+    border-color:#213547;
+  }
+}
+
+.Home_description h3 {
+  font-size: 2em;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(15, end) 3.2s forwards, blink 0.2s infinite;
+}
+
+.Home_description p {
+  font-size: 1.4em;
+  line-height: 1.5em;
+}
+
+.MyImage {
+  padding-top: 2em;
+}
+
+.MyImage img {
+  width: 100%;
+  max-width: 460px ;
+  height: auto;
+border-radius: 50%;
+  margin-top: 1em;
+  filter: drop-shadow(0 5px 12px rgba(2, 38, 239, 0.6));
+}
+.MyImage img:hover {
+
+  filter: drop-shadow(0 5px 12px rgba(66, 93, 246, 0.6));
+}
+.SocialIcons{
+  display: flex;
+  gap: 30px;
+  padding-top: 2em;
+  cursor: pointer;
+  
+}
+.social-icon{
+
+  transition: ease-in 0.4s;
+}
+.social-icon:hover{
+  color: #f9f9f9;
+  transform: translateY(-8px) scale(1.1);
+}
+.MyAchieved ul{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 3em;
+  background-color: #213547;
+  padding: 1em;
+  border-radius: 20px;
+  
+}
+.MyAchieved ul strong{
+  color:#646cff ;
+  font-size: 2em;
+}
