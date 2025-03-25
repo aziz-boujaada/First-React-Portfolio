@@ -29,8 +29,8 @@ a:hover {
 }
 
 body {
-  margin:0;
-  
+  margin: 0;
+
 }
 
 h1 {
@@ -107,19 +107,22 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 0 1em;
+  padding: 3em 1em;
   height: calc(100vh - 60px);
+  border-bottom: 1px solid gray;
 }
 
 .Home_description h2 {
-  color: #646cff;
+
+  background: linear-gradient(to right, #646cff, #040a82);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 3em;
   border-right: 3px solid #646cff;
   width: 0;
   overflow: hidden;
   white-space: nowrap;
   animation: typing 3s steps(15, end) forwards, blink 0.6s infinite;
-  
 }
 
 @keyframes typing {
@@ -133,18 +136,21 @@ button:focus-visible {
 
 }
 
-@keyframes blink{
-  50%{
-    border-color:#213547;
+@keyframes blink {
+  50% {
+    border-color: #213547;
   }
 }
 
 .Home_description h3 {
+  background: linear-gradient(to left, #fcfcff, #595cae);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 2em;
   width: 0;
   overflow: hidden;
   white-space: nowrap;
-  animation: typing 3s steps(15, end) 3.2s forwards, blink 0.2s infinite;
+  animation: typing 3s steps(15, end) forwards, blink 0.2s infinite;
 }
 
 .Home_description p {
@@ -158,32 +164,37 @@ button:focus-visible {
 
 .MyImage img {
   width: 100%;
-  max-width: 460px ;
+  max-width: 460px;
   height: auto;
-border-radius: 50%;
-  margin-top: 1em;
+  border-radius: 50%;
+  margin-bottom: 3em;
   filter: drop-shadow(0 5px 12px rgba(2, 38, 239, 0.6));
 }
+
 .MyImage img:hover {
 
   filter: drop-shadow(0 5px 12px rgba(66, 93, 246, 0.6));
 }
-.SocialIcons{
+
+.SocialIcons {
   display: flex;
   gap: 30px;
   padding-top: 2em;
   cursor: pointer;
-  
+
 }
-.social-icon{
+
+.social-icon {
 
   transition: ease-in 0.4s;
 }
-.social-icon:hover{
+
+.social-icon:hover {
   color: #f9f9f9;
   transform: translateY(-8px) scale(1.1);
 }
-.MyAchieved ul{
+
+.MyAchieved ul {
   display: flex;
   align-items: center;
   gap: 50px;
@@ -191,9 +202,69 @@ border-radius: 50%;
   background-color: #213547;
   padding: 1em;
   border-radius: 20px;
-  
+
 }
-.MyAchieved ul strong{
-  color:#646cff ;
+
+.MyAchieved ul li {
+  padding-left: 1em;
+ color:  rgb(171, 170, 170);
+}
+.MyAchieved ul strong {
+  color: #646cff;
   font-size: 2em;
+}
+
+.AboutSection {
+  display: flex;
+ ;
+  padding: 3em 1em;
+  border-bottom: 1px solid gray;
+}
+
+.Section_title{
+  background: linear-gradient(to right, #646cff, #040a82);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3em;
+  border-left: 3px solid #040a82;
+ padding-left: 1em;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(15) forwards;
+
+}
+
+.Education_Experience{
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+ gap: 50px;
+ padding-left: 2em;
+}
+.education ,.experience{
+  background-color: #213547;
+  padding: 1em;
+  border-radius: 20px;
+  border:  1px solid gray;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.education h2 ,.experience h2{
+  color: rgb(171, 170, 170);
+  font-size: 2em;
+}
+.education h3 ,.experience h3{
+  font-size: 1.5em;
+}
+.education p ,.experience p{
+ color: rgb(171, 170, 170);
+}
+.education:hover{
+ transform: translateY(-10px)  !important;
+ box-shadow: 0 0 4px #555df7;
+}
+.experience:hover{
+ transform: translateY(-10px)  !important;
+ box-shadow: 0 0 4px #555df7;
 }
