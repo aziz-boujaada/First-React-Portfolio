@@ -12,7 +12,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+*{
+  box-sizing: border-box;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -29,8 +31,8 @@ a:hover {
 }
 
 body {
-  margin: 0;
-
+  margin: 0 4em;
+   
 }
 
 h1 {
@@ -39,19 +41,20 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border-radius: 10px;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background: linear-gradient(to right, #646cff, #040a82);
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition:  0.4s;
 }
 
 button:hover {
-  border-color: #646cff;
+  border:1px solid white;
+  background: linear-gradient(to left, #646cff, #040a82);
 }
 
 button:focus,
@@ -77,15 +80,27 @@ button:focus-visible {
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 0 2em;
-  background-color: #213547;
+  justify-content: space-between;
+padding: 0 5em;
   height: 60px;
   width: 100%;
+  left: 0;
   position: fixed;
   z-index: 1;
+  transition: background-color 0.3s ease-in-out;
+
 }
 
+.header.scrolled{
+  background-color:rgba(32, 49, 96, 0.947);
+ 
+}
+.logo h3{
+  font-size: 1.5em;
+}
+.logo span{
+  color: #979cff;
+}
 .navList ul {
   display: flex;
   align-items: center;
@@ -94,6 +109,7 @@ button:focus-visible {
 
 .navList ul li a {
   color: #f9f9f9;
+  font-size: 18px;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -101,14 +117,17 @@ button:focus-visible {
 .navList a:hover {
   color: #646cff;
   transform: translateY(-6px);
+  border-bottom: 2px solid #646cff;
+ 
 }
+
 
 .HeroSection {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 3em 1em;
-  height: calc(100vh - 60px);
+  height: 100vh;
   border-bottom: 1px solid gray;
 }
 
@@ -156,6 +175,8 @@ button:focus-visible {
 .Home_description p {
   font-size: 1.4em;
   line-height: 1.5em;
+  border-left: 5px solid #040a82;
+  padding-left: 1em;
 }
 
 .MyImage {
@@ -199,7 +220,8 @@ button:focus-visible {
   align-items: center;
   gap: 50px;
   margin-top: 3em;
-  background-color: #213547;
+  background: linear-gradient(to right, #373b6b, #213547, #040a82);
+
   padding: 1em;
   border-radius: 20px;
 
@@ -207,8 +229,9 @@ button:focus-visible {
 
 .MyAchieved ul li {
   padding-left: 1em;
- color:  rgb(171, 170, 170);
+  color: rgb(171, 170, 170);
 }
+
 .MyAchieved ul strong {
   color: #646cff;
   font-size: 2em;
@@ -216,18 +239,19 @@ button:focus-visible {
 
 .AboutSection {
   display: flex;
- ;
   padding: 3em 1em;
+  margin-top: 3em;
   border-bottom: 1px solid gray;
+  height: 80vh;
 }
 
-.Section_title{
-  background: linear-gradient(to right, #646cff, #040a82);
+.Section_title {
+  background: linear-gradient(to left, #d5d7ff, #040a82);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 3em;
-  border-left: 3px solid #040a82;
- padding-left: 1em;
+  border-left: 5px solid #040a82;
+  padding-left: 1em;
   width: 0;
   overflow: hidden;
   white-space: nowrap;
@@ -235,36 +259,86 @@ button:focus-visible {
 
 }
 
-.Education_Experience{
- display: flex;
- align-items: center;
- justify-content: space-around;
- gap: 50px;
- padding-left: 2em;
+.Education_Experience {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8rem;
+  padding-left: 2em;
 }
-.education ,.experience{
-  background-color: #213547;
+
+.education,
+.experience {
+ 
+  background: linear-gradient(to right, #373b6b, #213547, #040a82);
   padding: 1em;
   border-radius: 20px;
-  border:  1px solid gray;
+  border: 1px solid gray;
   cursor: pointer;
   transition: 0.4s;
 }
-.education h2 ,.experience h2{
+
+.education h2,
+.experience h2 {
   color: rgb(171, 170, 170);
   font-size: 2em;
 }
-.education h3 ,.experience h3{
+
+.education h3,
+.experience h3 {
   font-size: 1.5em;
 }
-.education p ,.experience p{
- color: rgb(171, 170, 170);
+
+.education p,
+.experience p {
+  color: rgb(171, 170, 170);
 }
-.education:hover{
- transform: translateY(-10px)  !important;
- box-shadow: 0 0 4px #555df7;
+
+.education:hover {
+  transform: translateY(-10px) !important;
+  background: linear-gradient(to left, #373b6b, #213547, #040a82);
 }
-.experience:hover{
- transform: translateY(-10px)  !important;
- box-shadow: 0 0 4px #555df7;
+
+.experience:hover {
+  transform: translateY(-10px) !important;
+  background: linear-gradient(to left, #373b6b, #213547, #040a82);
+}
+
+
+.Skills_cards {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 60px;
+  margin-left: 5em;
+}
+
+.skill-card {
+  background: linear-gradient(to left, #373b6b, #213547, #040a82);
+  padding: 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.skill-card h4{
+  color: rgb(171, 170, 170);
+}
+.skill-card:hover {
+  transform: translateY(-10px) ;
+  background: linear-gradient(to right, #575c9b, #1e4c73, #1923e6);
+}
+
+.skill-card img {
+  width: 60px;
+  height: 60px;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease-in-out;
+}
+.skill-card img:hover {
+  width: 60px;
+  height: 60px;
+  filter: grayscale(0%);
 }

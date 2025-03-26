@@ -1,8 +1,8 @@
 //Import libraries
-import { easeInOut, motion  } from "framer-motion";
-import { useInView } from 'react-intersection-observer';
+import { easeInOut, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { faCode } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faGithub,
@@ -11,6 +11,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { useState, useEffect } from "react";
+import { img } from "framer-motion/client";
 
 //Header Components
 function MyButton() {
@@ -38,7 +39,12 @@ function NavList() {
 function MyLogo() {
   return (
     <div className="logo">
-      <h3>AZI ZE <span><FontAwesomeIcon icon={faCode}/></span></h3>
+      <h3>
+        AZI ZE{" "}
+        <span>
+          <FontAwesomeIcon icon={faCode} />
+        </span>
+      </h3>
     </div>
   );
 }
@@ -168,84 +174,148 @@ function MyImage() {
 
 // About Section Components
 
-function EducationAndExperience(){
+function EducationAndExperience() {
   const { ref: sectionTitleRef, inView: sectionTitleInView } = useInView({
-    triggerOnce:true,
-    threshold:0.5,
+    triggerOnce: true,
+    threshold: 0.5,
   });
 
   const { ref: educationRef, inView: educationInView } = useInView({
-    triggerOnce:true,
-    threshold:0.5,
+    triggerOnce: true,
+    threshold: 0.5,
   });
 
   const { ref: experienceRef, inView: experienceInView } = useInView({
-    triggerOnce:true,
-    threshold:0.5,
+    triggerOnce: true,
+    threshold: 0.5,
   });
 
-
-  console.log(educationInView )
-  return(
-    
+  console.log(educationInView);
+  return (
     <div>
-  <motion.h2 
-  className="Section_title"
-  ref={sectionTitleRef}
-  initial={{ opacity :0, y:-100 }}
-  animate={{ opacity: sectionTitleInView ? 1 :0, y:sectionTitleInView?0 :-100 }}
-  transition={{ duration: 3, ease: easeInOut }}
-  >
-    Education & Experience
-  </motion.h2>
-  <div className="Education_Experience">
-  <motion.div
-  className="education"
-  ref={educationRef}
-  initial={{ opacity :0, x:-100 }}
-  animate={{ opacity: educationInView ? 1 :0, x: educationInView?0 :-100}}
-  transition={{ duration: 2, ease: easeInOut }}
-  
-  >
-  
-    <h2>🎓</h2>
-    <h3>Education</h3>
-    <p>
-      Self-taught Web Development (2024 - Present)
-      Continuously learning and improving my skills in front-end
-      development
-      through hands-on projects and self-study.
-    </p>
-  </motion.div>
-  <motion.div
-   className="experience"
-   ref={experienceRef}
-   initial={{ opacity: 0, x:-100 }}
-  animate={{ opacity: experienceInView ?1 :0 , x:educationInView ?0 :100 }}
-  transition={{ duration: 2, ease: easeInOut }}
-   >
-    <h2>💼</h2>
-    <h3>Experience</h3>
-    <p>
-      Gaining practical experience by working on real-world
-      projects,
-      enhancing problem-solving skills, and continuously improving my
-      development expertise
-    </p>
-  </motion.div>
-</div>
-</div>
+      <motion.h2
+        className="Section_title"
+        ref={sectionTitleRef}
+        initial={{ opacity: 0, y: -100 }}
+        animate={{
+          opacity: sectionTitleInView ? 1 : 0,
+          y: sectionTitleInView ? 0 : -100,
+        }}
+        transition={{ duration: 3, ease: easeInOut }}
+      >
+        Education & Experience
+      </motion.h2>
+      <div className="Education_Experience">
+        <motion.div
+          className="education"
+          ref={educationRef}
+          initial={{ opacity: 0, x: -100 }}
+          animate={{
+            opacity: educationInView ? 1 : 0,
+            x: educationInView ? 0 : -100,
+          }}
+          transition={{ duration: 2, ease: easeInOut }}
+        >
+          <h2>🎓</h2>
+          <h3>Education</h3>
+          <p>
+            Self-taught Web Development (2024 - Present) Continuously learning
+            and improving my skills in front-end development through hands-on
+            projects and self-study.
+          </p>
+        </motion.div>
+        <motion.div
+          className="experience"
+          ref={experienceRef}
+          initial={{ opacity: 0, x: -100 }}
+          animate={{
+            opacity: experienceInView ? 1 : 0,
+            x: educationInView ? 0 : 100,
+          }}
+          transition={{ duration: 2, ease: easeInOut }}
+        >
+          <h2>💼</h2>
+          <h3>Experience</h3>
+          <p>
+            Gaining practical experience by working on real-world projects,
+            enhancing problem-solving skills, and continuously improving my
+            development expertise
+          </p>
+        </motion.div>
+      </div>
+    </div>
   );
-     }
+}
 
+//skills section
+function Skills() {
 
+  const SkillsObject =[
+    {name :"HTML 5" ,img: "/src/assets/html.png"},
+    {name :"CSS 3" ,img: "/src/assets/css.png"},
+    {name :"JavaScript" ,img:"/src/assets/JS.png"},
+    {name :"React js" ,img: "/src/assets/reactjs.png"},
+    {name :"Figma" ,img: "/src/assets/figma.png"},
+    {name :"Git" ,img: "/src/assets/git.png"},
+  ]
+
+  const { ref: sectionTitleRef, inView: sectionTitleInView } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+  });
+  const { ref: skillsCardsRef, inView: skillsCardsInView } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+  });
+  return (
+    <>
+    <motion.h2
+      ref={sectionTitleRef}
+      className="Section_title"
+      initial={{ opacity:0 , y:-100 }}
+      animate={{ opacity: sectionTitleInView?1:0, y: sectionTitleInView?0:-100}}
+      transition={{ duration: 3, ease: easeInOut }}
+    >
+      Skills
+    </motion.h2>
+     
+     <motion.div 
+     className="Skills_cards"
+     ref={skillsCardsRef}
+     initial={{ opacity:0 , y:-100 }}
+      animate={{ opacity: skillsCardsInView?1:0, y: skillsCardsInView?0:-100}}
+      transition={{ duration: 3, ease: easeInOut }}
+     >
+      
+        {SkillsObject.map((skill ,index) =>(
+          <div key={index} className="skill-card">
+            <img src= {skill.img} alt= {skill.img} />
+            <h4> {skill.name}</h4>
+          </div>
+        ))}
+     </motion.div>
+     </>
+  );
+}
 
 //My APP
 export default function MyApp() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div>
       <motion.div
-        className="header"
+        className={`header ${scrolled ? "scrolled" : ""}`}
         initial={{ opacity: 0, y: -300 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 3, ease: "easeInOut" }}
@@ -260,9 +330,12 @@ export default function MyApp() {
         <MyImage />
       </section>
 
-      <section className="AboutSection"> 
-        <EducationAndExperience/>
-        
+      <section className="AboutSection">
+        <EducationAndExperience />
+      </section>
+
+      <section className="SkillsSection">
+        <Skills />
       </section>
     </div>
   );
