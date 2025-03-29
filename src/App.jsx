@@ -377,7 +377,7 @@ function MyProjects() {
       ProjectImage: "/src/assets/myPortfolio.png",
       ProjectDescription: "My portfolio when i showcase what i can do  ",
       links:[
-        { link: "https://github.com/aziz-boujaada/Weather-app.git" ,linkIcon:faGithub},
+        { link: "https://github.com/aziz-boujaada/First-React-Portfolio.git" ,linkIcon:faGithub},
         { link: "https://aziz-boujaada.github.io/Weather-app/" ,linkIcon:faExternalLinkAlt}
      ],
       Technologies: [
