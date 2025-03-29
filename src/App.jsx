@@ -2,16 +2,21 @@
 import { easeInOut, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { faCode,faExternalLinkAlt, faLink } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faGithub,
   faLinkedin,
   faDiscord,
   faInstagram,
+  faHtml5,
+  faCss3,
+  faJs,
+  faGitSquare,
+  faReact,
 } from "@fortawesome/free-brands-svg-icons";
+
 import { useState, useEffect } from "react";
-import { img } from "framer-motion/client";
 
 //Header Components
 function MyButton() {
@@ -248,56 +253,210 @@ function EducationAndExperience() {
 }
 
 //skills section
-function Skills() {
-
-  const SkillsObject =[
-    {name :"HTML 5" ,img: "/src/assets/html.png"},
-    {name :"CSS 3" ,img: "/src/assets/css.png"},
-    {name :"JavaScript" ,img:"/src/assets/JS.png"},
-    {name :"React js" ,img: "/src/assets/reactjs.png"},
-    {name :"Figma" ,img: "/src/assets/figma.png"},
-    {name :"Git" ,img: "/src/assets/git.png"},
-  ]
+function MySkills() {
+  const SkillsObject = [
+    { name: "HTML 5", img: "/src/assets/html.png" },
+    { name: "CSS 3", img: "/src/assets/css.png" },
+    { name: "JavaScript", img: "/src/assets/JS.png" },
+    { name: "React JS", img: "/src/assets/reactjs.png" },
+    { name: "Figma", img: "/src/assets/figma.png" },
+    { name: "Git", img: "/src/assets/git.png" },
+  ];
 
   const { ref: sectionTitleRef, inView: sectionTitleInView } = useInView({
     triggerOnce: true,
-    threshold: 1,
+    threshold: 0.5,
   });
   const { ref: skillsCardsRef, inView: skillsCardsInView } = useInView({
     triggerOnce: true,
-    threshold: 1,
+    threshold: 0.5,
   });
   return (
     <>
-    <motion.h2
-      ref={sectionTitleRef}
-      className="Section_title"
-      initial={{ opacity:0 , y:-100 }}
-      animate={{ opacity: sectionTitleInView?1:0, y: sectionTitleInView?0:-100}}
-      transition={{ duration: 3, ease: easeInOut }}
-    >
-      Skills
-    </motion.h2>
-     
-     <motion.div 
-     className="Skills_cards"
-     ref={skillsCardsRef}
-     initial={{ opacity:0 , y:-100 }}
-      animate={{ opacity: skillsCardsInView?1:0, y: skillsCardsInView?0:-100}}
-      transition={{ duration: 3, ease: easeInOut }}
-     >
-      
-        {SkillsObject.map((skill ,index) =>(
+      <motion.h2
+        ref={sectionTitleRef}
+        className="Section_title"
+        initial={{ opacity: 0, y: -100 }}
+        animate={{
+          opacity: sectionTitleInView ? 1 : 0,
+          y: sectionTitleInView ? 0 : -100,
+        }}
+        transition={{ duration: 3, ease: easeInOut }}
+      >
+        Skills
+      </motion.h2>
+
+      <motion.div
+        className="Skills_cards"
+        ref={skillsCardsRef}
+        initial={{ opacity: 0, y: -100 }}
+        animate={{
+          opacity: skillsCardsInView ? 1 : 0,
+          y: skillsCardsInView ? 0 : -100,
+        }}
+        transition={{ duration: 3, ease: easeInOut }}
+      >
+        {SkillsObject.map((skill, index) => (
           <div key={index} className="skill-card">
-            <img src= {skill.img} alt= {skill.img} />
+            <img src={skill.img} alt={skill.img} />
             <h4> {skill.name}</h4>
           </div>
         ))}
-     </motion.div>
-     </>
+      </motion.div>
+    </>
   );
 }
 
+// MY projects Section
+function MyProjects() {
+  const ProjectsList = [
+    {
+      ProjectName: "Online Education Platform ",
+      ProjectImage: "/src/assets/Education-Platform.png",
+      ProjectDescription: "Online Education Platform ",
+      links: [
+        { link: "https://github.com/aziz-boujaada/Education-platform.git" ,linkIcon :faGithub},
+        { link: "https://aziz-boujaada.github.io/Education-platform/" ,linkIcon :faExternalLinkAlt },
+      ],
+      Technologies: [
+        { ToolName: "HTML 5", ToolIcon: faHtml5 },
+        { ToolName: "CSS 3", ToolIcon: faCss3 },
+        { ToolName: "JavaScript", ToolIcon: faJs },
+        { ToolName: "Git", ToolIcon: faGitSquare },
+      ],
+    },
+    {
+      ProjectName: "Restaurant Landing page  ",
+      ProjectImage: "/src/assets/restaurant.png",
+      ProjectDescription: "Online Education Platform ",
+      links:[
+         { link: "https://github.com/aziz-boujaada/Restaurant.git" ,linkIcon:faGithub},
+         { link: "https://aziz-boujaada.github.io/Restaurant/" ,linkIcon:faExternalLinkAlt}
+      ],
+      Technologies: [
+        { ToolName: "HTML 5", ToolIcon: faHtml5 },
+        { ToolName: "CSS 3", ToolIcon: faCss3 },
+        { ToolName: "JavaScript", ToolIcon: faJs },
+        { ToolName: "Git", ToolIcon: faGitSquare },
+      ],
+    },
+    {
+      ProjectName: "Cafe Sales Management",
+      ProjectImage: "/src/assets/cafe-management-sales.png",
+      ProjectDescription: "Online Education Platform ",
+      links:[
+        { link: "https://github.com/aziz-boujaada/Cafe_managment.git" ,linkIcon:faGithub},
+        { link: "https://aziz-boujaada.github.io/Cafe_managment/" ,linkIcon:faExternalLinkAlt}
+     ],
+      Technologies: [
+        { ToolName: "HTML 5", ToolIcon: faHtml5 },
+        { ToolName: "CSS 3", ToolIcon: faCss3 },
+        { ToolName: "JavaScript", ToolIcon: faJs },
+        { ToolName: "Git", ToolIcon: faGitSquare },
+        
+      ],
+    },
+    {
+      ProjectName: "weather App",
+      ProjectImage: "/src/assets/weatherAPP.png",
+      ProjectDescription: "Online Education Platform ",
+        links:[
+          { link: "https://github.com/aziz-boujaada/Weather-app.git" ,linkIcon:faGithub},
+          { link: "https://aziz-boujaada.github.io/Weather-app/" ,linkIcon:faExternalLinkAlt}
+       ],
+      Technologies: [
+        { ToolName: "HTML 5", ToolIcon: faHtml5 },
+        { ToolName: "CSS 3", ToolIcon: faCss3 },
+        { ToolName: "JavaScript", ToolIcon: faJs },
+        { ToolName: "Git", ToolIcon: faGitSquare },
+        { ToolName: "API", ToolIcon: faLink },
+      ],
+    },
+    {
+      ProjectName: "My Portfolio",
+      ProjectImage: "/src/assets/myPortfolio.png",
+      ProjectDescription: "My portfolio when i showcase what i can do  ",
+      links:[
+        { link: "https://github.com/aziz-boujaada/Weather-app.git" ,linkIcon:faGithub},
+        { link: "https://aziz-boujaada.github.io/Weather-app/" ,linkIcon:faExternalLinkAlt}
+     ],
+      Technologies: [
+        { ToolName: "HTML 5", ToolIcon: faHtml5 },
+        { ToolName: "CSS 3", ToolIcon: faCss3 },
+        { ToolName: "JavaScript", ToolIcon: faJs },
+        { ToolName: "Git", ToolIcon: faGitSquare },
+        { ToolName: "React JS", ToolIcon: faReact },
+      ],
+    },
+  ];
+  const { ref: sectionTitleRef, inView: sectionTitleInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: projectsCardRef, inView: projectsCardInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  return (
+    <>
+      <motion.h2
+        className="Section_title"
+        ref={sectionTitleRef}
+        initial={{ opacity: 0, y: -100 }}
+        animate={{
+          opacity: sectionTitleInView ? 1 : 0,
+          y: sectionTitleInView ? 0 : -100,
+        }}
+        transition={{ duration: 3, ease: easeInOut }}
+      >
+        My Projects
+      </motion.h2>
+      <motion.div
+        className="projects-cards"
+        ref={projectsCardRef}
+        initial={{ opacity: 0, x: -100 }}
+        animate={{
+          opacity: projectsCardInView ? 1 : 0,
+          x: projectsCardInView ? 0 : 100,
+        }}
+        transition={{ duration: 3, ease: easeInOut }}
+      >
+        {ProjectsList.map((project, index) => (
+          <div key={index} className="project_card">
+            <img src={project.ProjectImage} alt="" />
+            <h3>{project.ProjectName}</h3>
+            <p>{project.ProjectDescription}</p>
+
+
+            <div className="projects_links">
+              {project.links && project.links.map((projectLink ,linkIndex) => (
+                <a key={linkIndex} href= {projectLink.link} target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={projectLink.linkIcon}/>
+                
+                </a>
+              ))}
+            </div>
+
+            <div className="project_technologies">
+              {project.Technologies && project.Technologies.map((Technology, techIndex) => (
+                  <div key={techIndex}>
+                    <div className="technologies">
+                      <div className="tech_icon">
+                        <FontAwesomeIcon icon={Technology.ToolIcon} />
+                      </div>
+                      <div>
+                        <span className="tech_name">{Technology.ToolName}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        ))}
+      </motion.div>
+    </>
+  );
+}
 //My APP
 export default function MyApp() {
   const [scrolled, setScrolled] = useState(false);
@@ -335,7 +494,10 @@ export default function MyApp() {
       </section>
 
       <section className="SkillsSection">
-        <Skills />
+        <MySkills />
+      </section>
+      <section className="ProjectsSection">
+        <MyProjects />
       </section>
     </div>
   );
