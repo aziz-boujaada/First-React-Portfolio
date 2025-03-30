@@ -2,7 +2,15 @@
 import { easeInOut, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode,faExternalLinkAlt, faLink } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCode,
+  faExternalLinkAlt,
+  faLink,
+  faEnvelope,
+  faPhone,
+  faLocation,
+  faPaperPlane,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faGithub,
@@ -19,6 +27,7 @@ import {
 import { useState, useEffect } from "react";
 
 //Header Components
+// --contact button component--
 function MyButton() {
   return (
     <div className="Contact">
@@ -26,26 +35,28 @@ function MyButton() {
     </div>
   );
 }
-
+// --Navigation list component--
 function NavList() {
   return (
     <div className="navList">
       <ul>
-        {["Home", "About", "Project"].map((listItem, index) => (
-          <li key={index}>
-            <a href="#">{listItem}</a>
-          </li>
-        ))}
+        {["Home", "About", "Skills", "Project", "Contact"].map(
+          (listItem, index) => (
+            <li key={index}>
+              <a href="#">{listItem}</a>
+            </li>
+          )
+        )}
       </ul>
     </div>
   );
 }
-
+// --logo component
 function MyLogo() {
   return (
     <div className="logo">
       <h3>
-        AZI ZE{" "}
+        AZI ZE
         <span>
           <FontAwesomeIcon icon={faCode} />
         </span>
@@ -55,8 +66,8 @@ function MyLogo() {
 }
 // END of Header Components
 
-//Hero Section .
-// ---My Social Accounts---
+                       // HERO SECTION //
+// ---Array of my social accounts with icons ---
 const SocialLinks = [
   {
     icon: faFacebook,
@@ -73,7 +84,7 @@ const SocialLinks = [
   { icon: faDiscord, link: "https://discord.gg/xSz4ZAuw" },
   { icon: faGithub, link: "https://github.com/aziz-boujaada/" },
 ];
-// ---My Achievements---
+// ---Array of my Achievement---
 const Achieved = [
   { achievedCategory: "experience  months", Score: 5 },
   { achievedCategory: " Mastered Technologies", Score: 8 },
@@ -102,10 +113,10 @@ function AchievementCounter({ TargetScore }) {
   return <strong>{score}</strong>;
 }
 
-//Description about me And Social icons display
+// ---Description about me And Social icons display---
 function Description() {
   return (
-    //description Paragraph
+    // --description Paragraph--
     <motion.div
       className="Home_description"
       initial={{ opacity: 0, x: -100 }}
@@ -123,6 +134,7 @@ function Description() {
         continuously enhance my skills to build innovative digital solutions."
       </p>
 
+         {/* --Display Social icons--  */}
       <motion.div
         className="SocialIcons"
         //Social icons Display
@@ -142,6 +154,7 @@ function Description() {
           </a>
         ))}
       </motion.div>
+         {/* --Display Achievement */}
       <motion.div
         className="MyAchieved"
         //Achieved Display
@@ -163,7 +176,7 @@ function Description() {
   );
 }
 
-// Hero Section image
+// ---Hero Section image component---
 function MyImage() {
   return (
     <motion.div
@@ -177,8 +190,8 @@ function MyImage() {
   );
 }
 
-// About Section Components
-
+               // ---ABOUT SECTION ---
+  // --Education & experience Component--
 function EducationAndExperience() {
   const { ref: sectionTitleRef, inView: sectionTitleInView } = useInView({
     triggerOnce: true,
@@ -198,6 +211,7 @@ function EducationAndExperience() {
   console.log(educationInView);
   return (
     <div>
+      {/* -- section title -- */}
       <motion.h2
         className="Section_title"
         ref={sectionTitleRef}
@@ -211,6 +225,7 @@ function EducationAndExperience() {
         Education & Experience
       </motion.h2>
       <div className="Education_Experience">
+        {/* --- Education part ---*/}
         <motion.div
           className="education"
           ref={educationRef}
@@ -229,6 +244,8 @@ function EducationAndExperience() {
             projects and self-study.
           </p>
         </motion.div>
+
+        {/* --- Experience  part ---*/}
         <motion.div
           className="experience"
           ref={experienceRef}
@@ -252,8 +269,9 @@ function EducationAndExperience() {
   );
 }
 
-//skills section
+                          // ----SKILLS SECTION ----
 function MySkills() {
+  //Array Of my skills 
   const SkillsObject = [
     { name: "HTML 5", img: "/src/assets/html.png" },
     { name: "CSS 3", img: "/src/assets/css.png" },
@@ -307,16 +325,24 @@ function MySkills() {
   );
 }
 
-// MY projects Section
+                         // ---- PROJECTS SECTION ----
 function MyProjects() {
+  // array of my projects
   const ProjectsList = [
     {
       ProjectName: "Online Education Platform ",
       ProjectImage: "/src/assets/Education-Platform.png",
-      ProjectDescription: "Online Education Platform ",
+      ProjectDescription:
+        "An interactive e-learning platform that provides a seamless and engaging experience for learners. It features a modern design and smooth navigation to deliver educational content efficiently.",
       links: [
-        { link: "https://github.com/aziz-boujaada/Education-platform.git" ,linkIcon :faGithub},
-        { link: "https://aziz-boujaada.github.io/Education-platform/" ,linkIcon :faExternalLinkAlt },
+        {
+          link: "https://github.com/aziz-boujaada/Education-platform.git",
+          linkIcon: faGithub,
+        },
+        {
+          link: "https://aziz-boujaada.github.io/Education-platform/",
+          linkIcon: faExternalLinkAlt,
+        },
       ],
       Technologies: [
         { ToolName: "HTML 5", ToolIcon: faHtml5 },
@@ -328,10 +354,17 @@ function MyProjects() {
     {
       ProjectName: "Restaurant Landing page  ",
       ProjectImage: "/src/assets/restaurant.png",
-      ProjectDescription: "Online Education Platform ",
-      links:[
-         { link: "https://github.com/aziz-boujaada/Restaurant.git" ,linkIcon:faGithub},
-         { link: "https://aziz-boujaada.github.io/Restaurant/" ,linkIcon:faExternalLinkAlt}
+      ProjectDescription:
+        "A stylish and responsive landing page for a restaurant, showcasing the menu, contact details, and ambiance in an appealing and user-friendly manner.",
+      links: [
+        {
+          link: "https://github.com/aziz-boujaada/Restaurant.git",
+          linkIcon: faGithub,
+        },
+        {
+          link: "https://aziz-boujaada.github.io/Restaurant/",
+          linkIcon: faExternalLinkAlt,
+        },
       ],
       Technologies: [
         { ToolName: "HTML 5", ToolIcon: faHtml5 },
@@ -343,27 +376,40 @@ function MyProjects() {
     {
       ProjectName: "Cafe Sales Management",
       ProjectImage: "/src/assets/cafe-management-sales.png",
-      ProjectDescription: "Online Education Platform ",
-      links:[
-        { link: "https://github.com/aziz-boujaada/Cafe_managment.git" ,linkIcon:faGithub},
-        { link: "https://aziz-boujaada.github.io/Cafe_managment/" ,linkIcon:faExternalLinkAlt}
-     ],
+      ProjectDescription:
+        "A sales management system designed for cafés, enabling efficient tracking of orders, inventory management, and revenue calculation through a user-friendly interface.",
+      links: [
+        {
+          link: "https://github.com/aziz-boujaada/Cafe_managment.git",
+          linkIcon: faGithub,
+        },
+        {
+          link: "https://aziz-boujaada.github.io/Cafe_managment/",
+          linkIcon: faExternalLinkAlt,
+        },
+      ],
       Technologies: [
         { ToolName: "HTML 5", ToolIcon: faHtml5 },
         { ToolName: "CSS 3", ToolIcon: faCss3 },
         { ToolName: "JavaScript", ToolIcon: faJs },
         { ToolName: "Git", ToolIcon: faGitSquare },
-        
       ],
     },
     {
       ProjectName: "weather App",
       ProjectImage: "/src/assets/weatherAPP.png",
-      ProjectDescription: "Online Education Platform ",
-        links:[
-          { link: "https://github.com/aziz-boujaada/Weather-app.git" ,linkIcon:faGithub},
-          { link: "https://aziz-boujaada.github.io/Weather-app/" ,linkIcon:faExternalLinkAlt}
-       ],
+      ProjectDescription:
+        "A web application that provides real-time weather updates for any city worldwide, leveraging APIs to fetch accurate data with a sleek and intuitive design.",
+      links: [
+        {
+          link: "https://github.com/aziz-boujaada/Weather-app.git",
+          linkIcon: faGithub,
+        },
+        {
+          link: "https://aziz-boujaada.github.io/Weather-app/",
+          linkIcon: faExternalLinkAlt,
+        },
+      ],
       Technologies: [
         { ToolName: "HTML 5", ToolIcon: faHtml5 },
         { ToolName: "CSS 3", ToolIcon: faCss3 },
@@ -375,11 +421,18 @@ function MyProjects() {
     {
       ProjectName: "My Portfolio",
       ProjectImage: "/src/assets/myPortfolio.png",
-      ProjectDescription: "My portfolio when i showcase what i can do  ",
-      links:[
-        { link: "https://github.com/aziz-boujaada/First-React-Portfolio.git" ,linkIcon:faGithub},
-        { link: "https://aziz-boujaada.github.io/Weather-app/" ,linkIcon:faExternalLinkAlt}
-     ],
+      ProjectDescription:
+        "A personal portfolio website that showcases my skills and projects in a professional and visually appealing way, reflecting my expertise as a web developer. ",
+      links: [
+        {
+          link: "https://github.com/aziz-boujaada/First-React-Portfolio.git",
+          linkIcon: faGithub,
+        },
+        {
+          link: "https://aziz-boujaada.github.io/Weather-app/",
+          linkIcon: faExternalLinkAlt,
+        },
+      ],
       Technologies: [
         { ToolName: "HTML 5", ToolIcon: faHtml5 },
         { ToolName: "CSS 3", ToolIcon: faCss3 },
@@ -399,6 +452,7 @@ function MyProjects() {
   });
   return (
     <>
+    {/* -- section title -- */}
       <motion.h2
         className="Section_title"
         ref={sectionTitleRef}
@@ -411,6 +465,8 @@ function MyProjects() {
       >
         My Projects
       </motion.h2>
+
+      {/* projects cards */}
       <motion.div
         className="projects-cards"
         ref={projectsCardRef}
@@ -421,24 +477,32 @@ function MyProjects() {
         }}
         transition={{ duration: 3, ease: easeInOut }}
       >
+        {/* -- Display Projects info (image ,name ,description)  */}
         {ProjectsList.map((project, index) => (
           <div key={index} className="project_card">
             <img src={project.ProjectImage} alt="" />
             <h3>{project.ProjectName}</h3>
             <p>{project.ProjectDescription}</p>
-
-
+             
+             {/* -- Display Projects links (GitHub ,Live Demo)  */}
             <div className="projects_links">
-              {project.links && project.links.map((projectLink ,linkIndex) => (
-                <a key={linkIndex} href= {projectLink.link} target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={projectLink.linkIcon}/>
-                
-                </a>
-              ))}
+              {project.links &&
+                project.links.map((projectLink, linkIndex) => (
+                  <a
+                    key={linkIndex}
+                    href={projectLink.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={projectLink.linkIcon} />
+                  </a>
+                ))}
             </div>
 
+             {/* -- Display Technologies that used in Projects */}
             <div className="project_technologies">
-              {project.Technologies && project.Technologies.map((Technology, techIndex) => (
+              {project.Technologies &&
+                project.Technologies.map((Technology, techIndex) => (
                   <div key={techIndex}>
                     <div className="technologies">
                       <div className="tech_icon">
@@ -457,7 +521,96 @@ function MyProjects() {
     </>
   );
 }
-//My APP
+
+                            // ---- CONTACT SECTION ----
+function ContactMe() {
+  const { ref: sectionTitleRef, inView: sectionTitleInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: contactSectionRef, inView: contactSectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  // Array of my contact info 
+  const ContactInfo = [
+    {
+      name: "azizboujaada87@gmail.com",
+      contactItem: "mailto:azizboujaada87@gmail.com",
+      icon: faEnvelope,
+    },
+    {
+      name: "+212 674490454",
+      contactItem: "tel:+212 674490454",
+      icon: faPhone,
+    },
+    { name: "Amizmiz ,Marrakech,Morocco", icon: faLocation },
+  ];
+  return (
+    <>
+      <motion.h2
+        className="Section_title"
+        ref={sectionTitleRef}
+        initial={{ opacity: 0, y: -100 }}
+        animate={{
+          opacity: sectionTitleInView ? 1 : 0,
+          y: sectionTitleInView ? 0 : -100,
+        }}
+        transition={{ duration: 3, ease: easeInOut }}
+      >
+        Get In Touch
+      </motion.h2>
+
+      {/* -- contact container (contact info & contact form) */}
+      <div className="contact_container">
+          {/* --- contact info --- */}
+        <motion.div
+          className="contact_information"
+          ref={contactSectionRef}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{
+            opacity: contactSectionInView ? 1 : 0,
+            y: contactSectionInView ? 0 : 100,
+          }}
+          transition={{ duration: 3, ease: easeInOut }}
+        >
+          <h3>Contact Information</h3>
+          {ContactInfo.map((contact, index) => (
+            <a key={index} href={contact.contactItem}>
+              <FontAwesomeIcon icon={contact.icon} />
+              <span>{contact.name}</span>
+            </a>
+          ))}
+        </motion.div>
+ 
+          {/* --- contact info --- */}
+        <motion.div
+          className="contact_form"
+          ref={contactSectionRef}
+          initial={{ opacity: 0, y: -100 }}
+          animate={{
+            opacity: contactSectionInView ? 1 : 0,
+            y: contactSectionInView ? 0 : -100,
+          }}
+          transition={{ duration: 3, ease: easeInOut }}
+        >
+          <form action="">
+            <label htmlFor="Name">Your Name</label>
+            <input type="text" placeholder="Enter Your Name" required />
+            <label htmlFor="Email">Your Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter Your Email" required/>
+            <label htmlFor="Message">Your Message</label>
+            <textarea name="message-area" id="message"placeholder="write Your Message" required></textarea>
+            <button type="submit">Send Message{" "}<span> <FontAwesomeIcon icon={faPaperPlane} /></span></button>
+          </form>
+
+        </motion.div>
+      </div>
+    </>
+  );
+}
+
+           // Main Application Component
 export default function MyApp() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -472,7 +625,9 @@ export default function MyApp() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
+     
     <div>
+      {/* Page Sections */}
       <motion.div
         className={`header ${scrolled ? "scrolled" : ""}`}
         initial={{ opacity: 0, y: -300 }}
@@ -496,8 +651,13 @@ export default function MyApp() {
       <section className="SkillsSection">
         <MySkills />
       </section>
+
       <section className="ProjectsSection">
         <MyProjects />
+      </section>
+
+      <section className="ContactSection">
+        <ContactMe />
       </section>
     </div>
   );
