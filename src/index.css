@@ -130,6 +130,7 @@ button:focus-visible {
 .logo span{
   color: #979cff;
 }
+
 .navList ul {
   display: flex;
   align-items: center;
@@ -558,7 +559,7 @@ button:focus-visible {
   }
 
   .header {
-    padding: 2em;
+    padding:0 2em;
   }
 
   .navList ul {
@@ -590,10 +591,13 @@ button:focus-visible {
     top: 0;
    padding: 0.5em;
   }
+  .Xmark_btn:hover{
+   color: #51a0fc;
+   transform: rotate(90deg);
+  }
   .openNav-btn{
    padding: 0.5em;
   }
- 
 
   .HeroSection {
     flex-direction: column;
