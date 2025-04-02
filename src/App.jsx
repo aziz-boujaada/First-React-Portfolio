@@ -2,6 +2,7 @@
 import { easeInOut, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { BrowserRouter as Router, Routes, Route ,Link , useLocation } from "react-router-dom";
 import {
   faCode,
   faExternalLinkAlt,
@@ -10,6 +11,8 @@ import {
   faPhone,
   faLocation,
   faPaperPlane,
+  faXmark,
+  faBars
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -27,29 +30,49 @@ import {
 import { useState, useEffect } from "react";
 
 //Header Components
-// --contact button component--
-function MyButton() {
-  return (
-    <div className="Contact">
-      <button>contact Me</button>
-    </div>
-  );
-}
+
+
 // --Navigation list component--
 function NavList() {
+  const [NavVisible , setNavVisible] = useState(false);
+  useEffect (()=>{
+    const handleClickOutSide =(event) =>{
+
+      if(NavVisible && !event.target.closest(".navList"))
+        setNavVisible(false)
+    }
+    document.addEventListener("click" ,handleClickOutSide)
+    return () =>{
+      document.removeEventListener("click",handleClickOutSide)
+    }
+  },[NavVisible])
+
   return (
-    <div className="navList">
+    <>
+        <FontAwesomeIcon icon={faBars} size="2x"  className=" openNav-btn"  onClick={(event)=>{ event.stopPropagation(); setNavVisible(true)}}/>
+    <motion.div
+     className= {`navList ${!NavVisible ? "nav_visibility" : ""}`}
+     initial={{y: -100 }}
+     animate={{y: NavVisible? 0 : -100}}
+     transition={{ duration: 0.3, ease: "easeInOut" }}
+     >
       <ul>
+        <FontAwesomeIcon icon={faXmark} size="2x"  className="Xmark_btn" onClick={()=>{setNavVisible(false)}}/>
         {["Home", "About", "Skills", "Project", "Contact"].map(
           (listItem, index) => (
             <li key={index}>
-              <a href="#">{listItem}</a>
+              <Link to={`/${listItem.toLowerCase()}`} onClick={ ()=>setNavVisible(false)}>
+              {listItem}
+              </Link>
             </li>
           )
         )}
       </ul>
-    </div>
+    </motion.div>
+    </>
   );
+  
+  
 }
 // --logo component
 function MyLogo() {
@@ -64,6 +87,8 @@ function MyLogo() {
     </div>
   );
 }
+//mobile navigation control 
+
 // END of Header Components
 
                        // HERO SECTION //
@@ -448,8 +473,9 @@ function MyProjects() {
   });
   const { ref: projectsCardRef, inView: projectsCardInView } = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.2,
   });
+  console.log("project show ," ,projectsCardInView)
   return (
     <>
     {/* -- section title -- */}
@@ -476,7 +502,9 @@ function MyProjects() {
           x: projectsCardInView ? 0 : 100,
         }}
         transition={{ duration: 3, ease: easeInOut }}
+      
       >
+      
         {/* -- Display Projects info (image ,name ,description)  */}
         {ProjectsList.map((project, index) => (
           <div key={index} className="project_card">
@@ -518,7 +546,8 @@ function MyProjects() {
           </div>
         ))}
       </motion.div>
-    </>
+      
+    </> 
   );
 }
 
@@ -610,55 +639,110 @@ function ContactMe() {
   );
 }
 
-           // Main Application Component
-export default function MyApp() {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+                // --- FOOTER --- 
+  function Footer(){
+    return(
+      <>
+      <div className="footer_container">
+
+      {SocialLinks.map((item, index) => (
+          <a key={index} href={item.link} target="_blank">
+            <FontAwesomeIcon
+              key={index}
+              icon={item.icon}
+              size="2x"
+              color="#646cff"
+              className="social-icon"
+            />
+          </a>
+      ))}
+      <div className="copyright">
+        <p>copyright © 2025 AZi Ze BouJaaDa .All rights reserved</p>
+        <p>Built with ❤️ using React JS</p>
+      </div>
+      </div>
+      </>
+    )
+  } 
+
+  
+  
+  function MainContent() {
+    const location = useLocation();
+  
+    useEffect(() => {
+      const sectionId = location.pathname.substring(1);
+      if (sectionId) {
+        setTimeout(() => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
       }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  return (
-     
-    <div>
-      {/* Page Sections */}
-      <motion.div
-        className={`header ${scrolled ? "scrolled" : ""}`}
-        initial={{ opacity: 0, y: -300 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 3, ease: "easeInOut" }}
-      >
-        <MyLogo />
-        <NavList />
-        <MyButton />
-      </motion.div>
+    }, [location.pathname]);
+  
+    return (
+      <>
+        <section id="home" className="HeroSection">
+          <Description />
+          <MyImage />
+        </section>
+  
+        <section id="about" className="AboutSection">
+          <EducationAndExperience />
+        </section>
+  
+        <section id="skills" className="SkillsSection">
+          <MySkills />
+        </section>
+  
+        <section id="projects" className="ProjectsSection">
+          <MyProjects />
+        </section>
+  
+        <section id="contact" className="ContactSection">
+          <ContactMe />
+        </section>
+  
+        <section className="FooterSection">
+          <Footer />
+        </section>
+      </>
+    );
+  }
+  
 
-      <section className="HeroSection">
-        <Description />
-        <MyImage />
-      </section>
+  export default function MyApp() {
+    const [scrolled, setScrolled] = useState(false);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        setScrolled(window.scrollY > 50);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+  
+    return (
+      <Router>
+        <div>
+  
+          <motion.div
+            className={`header ${scrolled ? "scrolled" : ""}`}
+            initial={{ opacity: 0, y: -300 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 3, ease: "easeInOut" }}
+          >
+            <MyLogo />
+            <NavList />
+          </motion.div>
 
-      <section className="AboutSection">
-        <EducationAndExperience />
-      </section>
-
-      <section className="SkillsSection">
-        <MySkills />
-      </section>
-
-      <section className="ProjectsSection">
-        <MyProjects />
-      </section>
-
-      <section className="ContactSection">
-        <ContactMe />
-      </section>
-    </div>
-  );
-}
+          <Routes>
+            <Route path="/*" element={<MainContent />} />
+          </Routes>
+        </div>
+      </Router>
+    );
+  }
+  

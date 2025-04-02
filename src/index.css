@@ -110,7 +110,7 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5em;
+  padding: 0 8em;
   height: 60px;
   width: 100%;
   left: 0;
@@ -121,8 +121,8 @@ button:focus-visible {
 }
 
 .header.scrolled{
-  background: linear-gradient(to right, #515cf1, #040494, #5059ff);
- 
+  background-color: rgba(66, 93, 246, 0.4);
+  backdrop-filter: blur(12px);
 }
 .logo h3{
   font-size: 1.5em;
@@ -158,12 +158,12 @@ button:focus-visible {
 }
 
 .navList a:hover::after {
-  
   transform: scaleX(1);
- 
- 
 }
 
+.openNav-btn ,.Xmark_btn{
+  display: none;
+}
 
 .HeroSection {
   display: flex;
@@ -184,7 +184,7 @@ button:focus-visible {
   width: 0;
   overflow: hidden;
   white-space: nowrap;
-  animation: typing 3s steps(15, end) forwards, blink 0.6s infinite;
+  animation: typing 3s steps(20,end) forwards, blink 0.6s infinite;
 }
 
 @keyframes typing {
@@ -486,6 +486,10 @@ button:focus-visible {
   font-weight: 500;
 }
 
+.ContactSection{
+  border-bottom: 1px solid gray;
+  padding: 3em 3em;
+}
 .contact_container{
   display: flex;
   justify-content: space-around;
@@ -514,6 +518,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 450px;
   padding: 2em;
   background-color: #163149;
   border-radius: 6px;
@@ -521,141 +526,177 @@ button:focus-visible {
 .contact_form form button{ 
  height: 55px;
 }
+ 
+.FooterSection{
+  padding-top: 3em;
+}
+.footer_container{
+  text-align: center;
+}
+.footer_container a{
+ padding-left: 1em;
+ font-size: 22px;
+}
+.footer_container p{
+ padding-top: 15px;
+ font-size: 20px;
+ color:rgb(171, 170, 170); ;
+}
 
-
-
-
-@media screen and (max-width: 1024px) {
+@media (max-width: 480px) {
   body {
-    margin: 0 2em;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Section_title {
+    font-size: 1.7em;
+    border-left: 3px solid #040a82;
+   
+    white-space:normal;
+   
   }
 
   .header {
-    padding: 0 2em;
+    padding: 2em;
   }
 
   .navList ul {
+    flex-direction: column;
     gap: 20px;
+    position: absolute;
+    margin: 0;
+    top: 0;
+    right: 0;
+    padding: 3em;
+    background: linear-gradient(to right, #383b61, #163149, #1e237c);
+    width: 100%;
+    transition:  transform 0.4s ease-in-out;
   }
+  .navList ul:hover {
+    background: linear-gradient(to left, #383b61, #163149, #1e237c);
+  }
+  .nav_visibility{
+    display: none ;
+  }
+  .openNav-btn ,.Xmark_btn{
+    display: block;
+    cursor: pointer;
+  }
+ 
+  .Xmark_btn{
+    position: absolute;
+    left: 5%; 
+    top: 0;
+   padding: 0.5em;
+  }
+  .openNav-btn{
+   padding: 0.5em;
+  }
+ 
 
   .HeroSection {
     flex-direction: column;
-    text-align: center;
+    margin: 0 0.5em;
     height: auto;
-    padding: 2em 1em;
   }
-
+  
   .Home_description h2,
   .Home_description h3 {
-    font-size: 2.5em;
+    font-size: 1.3em;
+    font-weight: 900;
+    margin-top: 2em;
+    padding: 0 1em;
   }
 
+  .Home_description p {
+    padding: 0 1em;
+    font-size: 1em;
+  }
+
+  .SocialIcons {
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+  
   .MyImage img {
-    max-width: 300px;
+    background-color: #0e508a;
+    padding: 2em 3em;
+    height: 450px;
+    width: 380px;
+    transition: transform 0.4s ease-out;
+  }
+  .MyImage img:hover {
+    border: 3px solid aliceblue;
+    transform: scale(1.03);
+  }
+
+  .MyAchieved {
+    margin: 2em 1em;
+    text-align: center;
+  }
+
+  .MyAchieved ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .AboutSection {
+    height: auto;
+    margin: 0;
+    padding: 2em 1em;
+    text-align: center;
   }
 
   .Education_Experience {
     flex-direction: column;
     gap: 2rem;
-    padding-left: 0;
+    padding: 0;
   }
 
-  .Skills_cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-left: 0;
+  .education,
+  .experience {
+    width: 100%;
+    padding: 1em;
   }
 
-  .projects-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .contact_container {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
-
-@media screen and (max-width: 768px) {
-  body {
-    margin: 0 1em;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: auto;
-    padding: 1em 0;
-  }
-
-  .navList ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .HeroSection {
-    flex-direction: column;
-    text-align: center;
+  .SkillsSection {
     height: auto;
     padding: 2em 1em;
   }
 
-  .Home_description h2,
-  .Home_description h3 {
-    font-size: 2em;
-  }
-
-  .MyAchieved ul {
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .Skills_cards {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 25px;
+   justify-content: center;
+   margin-left: 2em;
   }
-
+.skill-card img{
+  filter: grayscale(0%);
+}
   .projects-cards {
     grid-template-columns: repeat(1, 1fr);
+    padding: 0;
+    text-align: center;
+   
   }
 
-  .contact_information,
-  .contact_form form {
-    padding: 1.5em;
-  }
-}
-
-
-@media screen and (max-width: 480px) {
-  .HeroSection {
-    padding: 1em;
-  }
-
-  .Home_description h2,
-  .Home_description h3 {
-    font-size: 1.8em;
-  }
-
-  .MyAchieved ul {
-    padding: 0.8em;
-    gap: 10px;
-  }
-
-  .Skills_cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .projects-cards {
-    grid-template-columns: repeat(1,1fr);
-    gap: 10px;
-  }
-
-  .contact_information h3,
-  .contact_information a {
+  .project_card h3 {
     font-size: 16px;
   }
+
+  .contact_container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact_form form {
+    width: 100%;
+  }
 }
+
+
+
