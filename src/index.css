@@ -1,74 +1,88 @@
+/* Global styles and CSS variables */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  /* Light/dark mode support */
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  /* Text rendering optimization */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-*{
+
+* {
   box-sizing: border-box;
 }
+
+
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
 
-li {
-  list-style: none;
-
-}
-
 a:hover {
   color: #535bf2;
 }
+li {
+  list-style: none;
+}
+
 
 body {
-  margin: 0 4em;
-   
+  margin: 0 4em; 
 }
+
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
-textarea{
-  width:100%;
+/* Form element styles - Textarea */
+textarea {
+  width: 100%;
   height: 100px;
   resize: none;
   outline: none;
   padding-left: 12px;
   border-radius: 12px;
-  border: 1px solid #656cff ;
-  background-color:#0e253a;
+  border: 1px solid #656cff;
+  background-color: #0e253a;
 }
-textarea:focus{
-  border: 3px solid #656cff ;
+
+textarea:focus {
+  border: 3px solid #656cff;
 }
-input{
+
+/* Form element styles - Input fields */
+input {
   width: 100%;
   height: 55px;
   outline: none;
   padding-left: 12px;
   border-radius: 12px;
-  border: 1px solid #656cff ;
-  background-color:#0e253a;
+  border: 1px solid #656cff;
+  background-color: #0e253a;
 }
-input:focus{
-  border: 3px solid #656cff ;
+
+
+input:focus {
+  border: 3px solid #656cff;
 }
-label{
+
+
+label {
   font-size: 18px;
 }
 
+/* Button styling  */
 button {
   border-radius: 10px;
   padding: 0.6em 1.2em;
@@ -78,19 +92,22 @@ button {
   background: linear-gradient(to right, #646cff, #040a82);
   border: none;
   cursor: pointer;
-  transition:transform   0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
 }
 
+
 button:hover {
-  border:1px solid white;
+  border: 1px solid white;
   background: linear-gradient(to left, #646cff, #040a82);
 }
+
 
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Light mode color overrides */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -106,6 +123,7 @@ button:focus-visible {
   }
 }
 
+/* Header styles - */
 .header {
   display: flex;
   align-items: center;
@@ -117,55 +135,61 @@ button:focus-visible {
   position: fixed;
   z-index: 1;
   transition: background-color 0.3s ease-in-out;
-
 }
 
-.header.scrolled{
+/* Header background change on scroll */
+.header.scrolled {
   background-color: rgba(66, 93, 246, 0.4);
   backdrop-filter: blur(12px);
 }
-.logo h3{
+
+/* Logo styling */
+.logo h3 {
   font-size: 1.5em;
 }
-.logo span{
+
+.logo span {
   color: #979cff;
 }
 
+/* Navigation list styling */
 .navList ul {
   display: flex;
   align-items: center;
   gap: 40px;
 }
 
-.navList ul li a{
- position: relative;
- color: white;
+.navList ul li a {
+  position: relative;
+  color: white;
   font-size: 18px;
-  
   cursor: pointer;
 }
 
+/* Animated underline effect for navigation links */
 .navList ul li a::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   border-radius: 10px;
-   background-color: #51a0fc;
-   height: 4px ;
-   width: 100%;
-   transform: scaleX(0);
-   transition:transform 0.5s ease-in-out;
+  background-color: #51a0fc;
+  height: 4px;
+  width: 100%;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
 }
 
 .navList a:hover::after {
   transform: scaleX(1);
 }
 
-.openNav-btn ,.Xmark_btn{
+/* Mobile navigation buttons - hidden by default */
+.openNav-btn, .Xmark_btn {
   display: none;
 }
 
+/* Hero section styling */
 .HeroSection {
   display: flex;
   align-items: center;
@@ -175,8 +199,8 @@ button:focus-visible {
   border-bottom: 1px solid gray;
 }
 
+/* Text animation for hero heading */
 .Home_description h2 {
-
   background: linear-gradient(to right, #646cff, #040a82);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -185,26 +209,27 @@ button:focus-visible {
   width: 0;
   overflow: hidden;
   white-space: nowrap;
-  animation: typing 3s steps(20,end) forwards, blink 0.6s infinite;
+  animation: typing 3s steps(20, end) forwards, blink 0.6s infinite;
 }
 
+/* Typing animation keyframes */
 @keyframes typing {
   from {
     width: 0%;
   }
-
   to {
     width: 75%;
   }
-
 }
 
+/* Cursor blink animation */
 @keyframes blink {
   50% {
     border-color: #213547;
   }
 }
 
+/* Subheading animation */
 .Home_description h3 {
   background: linear-gradient(to left, #fcfcff, #595cae);
   -webkit-background-clip: text;
@@ -216,6 +241,7 @@ button:focus-visible {
   animation: typing 3s steps(15, end) forwards, blink 0.2s infinite;
 }
 
+/* Description text styling */
 .Home_description p {
   font-size: 1.4em;
   line-height: 1.5em;
@@ -223,10 +249,12 @@ button:focus-visible {
   padding-left: 1em;
 }
 
+/* Profile image container */
 .MyImage {
   padding-top: 2em;
 }
 
+/* Profile image styling  */
 .MyImage img {
   width: 100%;
   max-width: 460px;
@@ -237,20 +265,19 @@ button:focus-visible {
 }
 
 .MyImage img:hover {
-
   filter: drop-shadow(0 5px 12px rgba(66, 93, 246, 0.6));
 }
 
+/* Social media icons container */
 .SocialIcons {
   display: flex;
   gap: 30px;
   padding-top: 2em;
   cursor: pointer;
-
 }
 
-.social-icon {
 
+.social-icon {
   transition: ease-in 0.4s;
 }
 
@@ -259,16 +286,15 @@ button:focus-visible {
   transform: translateY(-8px) scale(1.1);
 }
 
+/* Achievements section styling */
 .MyAchieved ul {
   display: flex;
   align-items: center;
   gap: 50px;
   margin-top: 3em;
   background: linear-gradient(to right, #373b6b, #213547, #040a82);
-
   padding: 1em;
   border-radius: 20px;
-
 }
 
 .MyAchieved ul li {
@@ -281,6 +307,7 @@ button:focus-visible {
   font-size: 2em;
 }
 
+/* About section styling */
 .AboutSection {
   display: flex;
   padding: 3em 1em;
@@ -289,6 +316,7 @@ button:focus-visible {
   height: 80vh;
 }
 
+/* Section title animation */
 .Section_title {
   background: linear-gradient(to left, #d5d7ff, #040a82);
   -webkit-background-clip: text;
@@ -300,9 +328,9 @@ button:focus-visible {
   overflow: hidden;
   white-space: nowrap;
   animation: typing 3s steps(15) 3s forwards;
-
 }
 
+/* Education and experience container */
 .Education_Experience {
   display: flex;
   align-items: center;
@@ -311,9 +339,9 @@ button:focus-visible {
   padding-left: 2em;
 }
 
+/* Education and experience card styling */
 .education,
 .experience {
- 
   background: linear-gradient(to right, #373b6b, #213547, #040a82);
   padding: 1em;
   border-radius: 6px;
@@ -322,6 +350,7 @@ button:focus-visible {
   transition: 0.4s;
 }
 
+/* Education and experience title styling */
 .education h2,
 .experience h2 {
   color: rgb(171, 170, 170);
@@ -338,28 +367,33 @@ button:focus-visible {
   color: rgb(171, 170, 170);
 }
 
+/* Education card hover effect */
 .education:hover {
   transform: translateY(-10px) !important;
   background: linear-gradient(to left, #373b6b, #213547, #040a82);
 }
 
+/* Experience card hover effect */
 .experience:hover {
   transform: translateY(-10px) !important;
   background: linear-gradient(to left, #373b6b, #213547, #040a82);
 }
 
-.SkillsSection{
+/* Skills section container */
+.SkillsSection {
   height: 70vh;
   border-bottom: 1px solid gray;
 }
+
+/* Skills cards grid layout */
 .Skills_cards {
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 60px;
   margin-left: 5em;
-
 }
 
+/* Individual skill card styling */
 .skill-card {
   background: linear-gradient(to left, #373b6b, #213547, #040a82);
   padding: 20px;
@@ -371,51 +405,64 @@ button:focus-visible {
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
-.skill-card h4{
+
+.skill-card h4 {
   color: rgb(171, 170, 170);
 }
+
+
 .skill-card:hover {
-  transform: translateY(-10px) ;
+  transform: translateY(-10px);
   background: linear-gradient(to right, #575c9b, #1e4c73, #1923e6);
 }
 
+/* Skill card image styling with grayscale effect */
 .skill-card img {
   width: 60px;
   height: 60px;
   filter: grayscale(100%);
   transition: filter 0.4s ease-in-out;
 }
+
+/* Skill card image hover effect - removes grayscale */
 .skill-card img:hover {
   width: 60px;
   height: 60px;
   filter: grayscale(0%);
 }
 
-.ProjectsSection{
+/* Projects section container */
+.ProjectsSection {
   border-bottom: 1px solid gray;
   padding: 3em;
 }
-.projects-cards{
+
+/* Projects cards grid layout */
+.projects-cards {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   width: 100%;
- 
 }
+
+/* Individual project card styling */
 .project_card {
   position: relative;
   background: linear-gradient(to right, #383b61, #163149, #1e237c);
- padding: 10px;
- border-radius: 8px;
+  padding: 10px;
+  border-radius: 8px;
   transition: transform 0.5s ease-in-out;
   cursor: pointer;
 }
+
+/* Project card hover effect */
 .project_card:hover {
   transform: scale(1.02);
-
 }
-.project_card img{
+
+/* Project card image styling */
+.project_card img {
   width: 100%;
   height: 230px;
   position: relative;
@@ -423,99 +470,119 @@ button:focus-visible {
   transition: transform 0.4s ease-in-out;
 }
 
-
+/* Project card paragraph styling */
 .project_card p {
   color: rgb(171, 170, 170);
 }
- .project_card:hover {
+
+.project_card:hover {
   background: linear-gradient(to left, #212233, #022442, #00044b);
 }
 
+/* Project links container  */
 .projects_links {
   position: absolute;
   top: 30%;
   left: 50%;
-  transform: translate(-50% , -50%);
+  transform: translate(-50%, -50%);
 }
+/* Project link button styling */
 .projects_links a {
   background: linear-gradient(to left, #9fa5f8, #2a83d1, #1923e6);
   color: white;
   font-size: 20px;
   border-radius: 50%;
   margin-left: 20px;
-  padding: 6px 10px ;
+  padding: 6px 10px;
   text-align: center;
   transition: transform 0.4s ease-in-out;
 }
-.projects_links a:hover{
+
+.projects_links a:hover {
   background: linear-gradient(to right, #9fa5f8, #2a83d1, #1923e6);
   color: rgb(0, 0, 0);
-  transform:translateX(-8px);
+  transform: translateX(-8px);
 }
-.project_technologies{
+
+/* Project technologies grid layout */
+.project_technologies {
   display: grid;
-  grid-template-columns: repeat(3 ,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   align-items: center;
 }
-.technologies{
+
+/* Individual technology  styling */
+.technologies {
   display: flex;
   align-items: center;
- 
- background-color: #032a4d;
- background: linear-gradient(to left, #032a4d, #496884, #060832);
- border: 1px solid gray;
- border-radius: 12px;
- padding: 3px;
- transition: transform 0.4s ease-in-out;
+  background-color: #032a4d;
+  background: linear-gradient(to left, #032a4d, #496884, #060832);
+  border: 1px solid gray;
+  border-radius: 12px;
+  padding: 3px;
+  transition: transform 0.4s ease-in-out;
 }
-.technologies:hover{
+
+.technologies:hover {
   background: linear-gradient(to right, #0e508a, #496884, #1a1c41);
   transform: translateY(-6px);
 }
 
-.tech_name,.tech_icon{
+/* Technology name and icon styling */
+.tech_name, .tech_icon {
   padding-left: 6px;
   text-align: center;
   font-size: 12px;
 }
-.tech_icon{
+
+.tech_icon {
   color: white;
 }
-.tech_name{
+
+.tech_name {
   color: rgb(171, 170, 170);
   font-weight: 500;
 }
 
-.ContactSection{
+/* Contact section container */
+.ContactSection {
   border-bottom: 1px solid gray;
   padding: 3em 3em;
 }
-.contact_container{
+
+/* Contact layout with two columns */
+.contact_container {
   display: flex;
   justify-content: space-around;
   gap: 40px;
 }
-.contact_information{
+
+/* Contact information  styling */
+.contact_information {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
   background-color: #163149;
   padding: 3em;
   height: 30%;
   border-radius: 6px;
 }
-.contact_information h3{
+
+.contact_information h3 {
   font-size: 22px;
 }
-.contact_information a{
+
+.contact_information a {
   color: rgb(171, 170, 170);
   font-size: 18px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.contact_form form{ 
+
+/* Contact form styling */
+.contact_form form {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -524,44 +591,52 @@ button:focus-visible {
   background-color: #163149;
   border-radius: 6px;
 }
-.contact_form form button{ 
- height: 55px;
-}
- 
-.FooterSection{
-  padding-top: 3em;
-}
-.footer_container{
-  text-align: center;
-}
-.footer_container a{
- padding-left: 1em;
- font-size: 22px;
-}
-.footer_container p{
- padding-top: 15px;
- font-size: 20px;
- color:rgb(171, 170, 170); ;
+
+.contact_form form button {
+  height: 55px;
 }
 
+/* Footer section styling */
+.FooterSection {
+  padding-top: 3em;
+}
+
+.footer_container {
+  text-align: center;
+}
+
+.footer_container a {
+  padding-left: 1em;
+  font-size: 22px;
+}
+
+.footer_container p {
+  padding-top: 15px;
+  font-size: 20px;
+  color: rgb(171, 170, 170);
+}
+
+/* Mobile responsive styles */
 @media (max-width: 480px) {
+  
   body {
     margin: 0;
     padding: 0;
   }
 
+  /* Adjust section title  */
   .Section_title {
     font-size: 1.7em;
     border-left: 3px solid #040a82;
-   
-    white-space:normal;
-   
+    white-space: normal;
   }
 
+  /* Adjust header  */
   .header {
-    padding:0 2em;
+    padding: 0 2em;
   }
 
+  /* Mobile navigation menu styling */
   .navList ul {
     flex-direction: column;
     gap: 20px;
@@ -572,39 +647,52 @@ button:focus-visible {
     padding: 3em;
     background: linear-gradient(to right, #383b61, #163149, #1e237c);
     width: 100%;
-    transition:  transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
   }
+
   .navList ul:hover {
     background: linear-gradient(to left, #383b61, #163149, #1e237c);
   }
-  .nav_visibility{
-    display: none ;
+
+  /* Hide navigation menu by default on mobile */
+  .nav_visibility {
+    display: none;
   }
-  .openNav-btn ,.Xmark_btn{
+
+  /* Show mobile navigation buttons */
+  .openNav-btn, .Xmark_btn {
     display: block;
     cursor: pointer;
   }
- 
-  .Xmark_btn{
+
+  /* Close (X) button position*/
+  .Xmark_btn {
     position: absolute;
-    left: 5%; 
+    left: 5%;
     top: 0;
-   padding: 0.5em;
-  }
-  .Xmark_btn:hover{
-   color: #51a0fc;
-   transform: rotate(90deg);
-  }
-  .openNav-btn{
-   padding: 0.5em;
+    padding: 0.5em;
   }
 
+  /* Close button hover effect */
+  .Xmark_btn:hover {
+    color: #51a0fc;
+  }
+
+  .openNav-btn {
+    padding: 0.5em;
+  }
+  .openNav-btn:hover {
+    color: #51a0fc;
+  }
+
+  /* Adjust hero section  */
   .HeroSection {
     flex-direction: column;
     margin: 0 0.5em;
     height: auto;
   }
-  
+
+  /* Adjust hero text  */
   .Home_description h2,
   .Home_description h3 {
     font-size: 1.3em;
@@ -618,13 +706,15 @@ button:focus-visible {
     font-size: 1em;
   }
 
+  /* Center social icons  */
   .SocialIcons {
     padding-left: 0;
     display: flex;
     justify-content: center;
     gap: 25px;
   }
-  
+
+  /* Adjust profile image  */
   .MyImage img {
     background-color: #0e508a;
     padding: 2em 3em;
@@ -632,22 +722,26 @@ button:focus-visible {
     width: 380px;
     transition: transform 0.4s ease-out;
   }
+
   .MyImage img:hover {
     border: 3px solid aliceblue;
     transform: scale(1.03);
   }
 
+  /* Adjust achievements section */
   .MyAchieved {
     margin: 2em 1em;
     text-align: center;
   }
 
+  /* Switch achievements to 2-column grid  */
   .MyAchieved ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
 
+  /* Adjust about section */
   .AboutSection {
     height: auto;
     margin: 0;
@@ -655,6 +749,7 @@ button:focus-visible {
     text-align: center;
   }
 
+  /* Stack education and experience cards  */
   .Education_Experience {
     flex-direction: column;
     gap: 2rem;
@@ -667,40 +762,44 @@ button:focus-visible {
     padding: 1em;
   }
 
+  /* Adjust skills section  */
   .SkillsSection {
     height: auto;
     padding: 2em 1em;
   }
 
+  /* Switch skills to 2-column grid  */
   .Skills_cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
-   justify-content: center;
-   margin-left: 2em;
+    justify-content: center;
+    margin-left: 2em;
   }
-.skill-card img{
-  filter: grayscale(0%);
-}
+
+  /* Remove grayscale effect  */
+  .skill-card img {
+    filter: grayscale(0%);
+  }
+
+  /* Switch projects to single column  */
   .projects-cards {
     grid-template-columns: repeat(1, 1fr);
     padding: 0;
     text-align: center;
-   
   }
 
   .project_card h3 {
     font-size: 16px;
   }
 
+  /* Stack contact sections  */
   .contact_container {
     flex-direction: column;
     gap: 15px;
   }
 
+  /* Full-width contact form */
   .contact_form form {
     width: 100%;
   }
 }
-
-
-
