@@ -52,8 +52,8 @@ function NavList() {
         <FontAwesomeIcon icon={faBars} size="2x"  className=" openNav-btn"  onClick={(event)=>{ event.stopPropagation(); setNavVisible(true)}}/>
     <motion.div
      className= {`navList ${!NavVisible ? "nav_visibility" : ""}`}
-     initial={{y: -100 }}
-     animate={{y: NavVisible? 0 : -100}}
+     initial={{x: 100 }}
+     animate={{x: NavVisible? 0 : 100}}
      transition={{ duration: 0.3, ease: "easeInOut" }}
      >
       <ul>
@@ -210,7 +210,7 @@ function MyImage() {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 5, ease: easeInOut }}
     >
-      <img src="/src/assets/mypectuer.png" alt="my photo" />
+      <img src="/mypectuer.png" alt="my photo" />
     </motion.div>
   );
 }
@@ -298,12 +298,12 @@ function EducationAndExperience() {
 function MySkills() {
   //Array Of my skills 
   const SkillsObject = [
-    { name: "HTML 5", img: "/src/assets/html.png" },
-    { name: "CSS 3", img: "/src/assets/css.png" },
-    { name: "JavaScript", img: "/src/assets/JS.png" },
-    { name: "React JS", img: "/src/assets/reactjs.png" },
-    { name: "Figma", img: "/src/assets/figma.png" },
-    { name: "Git", img: "/src/assets/git.png" },
+    { name: "HTML 5", img: "/html.png" },
+    { name: "CSS 3", img: "/css.png" },
+    { name: "JavaScript", img: "/JS.png" },
+    { name: "React JS", img: "/reactjs.png" },
+    { name: "Figma", img: "/figma.png" },
+    { name: "Git", img: "/git.png" },
   ];
 
   const { ref: sectionTitleRef, inView: sectionTitleInView } = useInView({
@@ -356,7 +356,7 @@ function MyProjects() {
   const ProjectsList = [
     {
       ProjectName: "Online Education Platform ",
-      ProjectImage: "/src/assets/Education-Platform.png",
+      ProjectImage: "/Education-Platform.png",
       ProjectDescription:
         "An interactive e-learning platform that provides a seamless and engaging experience for learners. It features a modern design and smooth navigation to deliver educational content efficiently.",
       links: [
@@ -378,7 +378,7 @@ function MyProjects() {
     },
     {
       ProjectName: "Restaurant Landing page  ",
-      ProjectImage: "/src/assets/restaurant.png",
+      ProjectImage: "/restaurant.png",
       ProjectDescription:
         "A stylish and responsive landing page for a restaurant, showcasing the menu, contact details, and ambiance in an appealing and user-friendly manner.",
       links: [
@@ -400,7 +400,7 @@ function MyProjects() {
     },
     {
       ProjectName: "Cafe Sales Management",
-      ProjectImage: "/src/assets/cafe-management-sales.png",
+      ProjectImage: "/cafe-management-sales.png",
       ProjectDescription:
         "A sales management system designed for cafés, enabling efficient tracking of orders, inventory management, and revenue calculation through a user-friendly interface.",
       links: [
@@ -422,7 +422,7 @@ function MyProjects() {
     },
     {
       ProjectName: "weather App",
-      ProjectImage: "/src/assets/weatherAPP.png",
+      ProjectImage: "/WeatherAPP.png",
       ProjectDescription:
         "A web application that provides real-time weather updates for any city worldwide, leveraging APIs to fetch accurate data with a sleek and intuitive design.",
       links: [
@@ -445,7 +445,7 @@ function MyProjects() {
     },
     {
       ProjectName: "My Portfolio",
-      ProjectImage: "/src/assets/myPortfolio.png",
+      ProjectImage: "/myPortfolio.png",
       ProjectDescription:
         "A personal portfolio website that showcases my skills and projects in a professional and visually appealing way, reflecting my expertise as a web developer. ",
       links: [
