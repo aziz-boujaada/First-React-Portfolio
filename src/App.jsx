@@ -2,7 +2,7 @@
 import { easeInOut, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { BrowserRouter as Router, Routes, Route ,Link , useLocation } from "react-router-dom";
+import { HashRouter as Router, Routes, Route ,Link , useLocation } from "react-router-dom";
 import {
   faCode,
   faExternalLinkAlt,
