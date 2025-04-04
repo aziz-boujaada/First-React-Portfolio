@@ -55,6 +55,7 @@ function NavList() {
      initial={{x: -100 }}
      animate={{x: NavVisible? 0 :-100}}
      transition={{ duration: 0.6, ease: "easeInOut" }}
+
      >
       <ul>
         <FontAwesomeIcon icon={faXmark} size="2x"  className="Xmark_btn" onClick={()=>{setNavVisible(false)}}/>
@@ -210,7 +211,9 @@ function MyImage() {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 5, ease: easeInOut }}
     >
+
       <img src="mypectuer.png" alt="my photo" />
+
     </motion.div>
   );
 }
@@ -304,6 +307,7 @@ function MySkills() {
     { name: "React JS", img: "reactjs.png" },
     { name: "Figma", img: "figma.png" },
     { name: "Git", img: "git.png" },
+
   ];
 
   const { ref: sectionTitleRef, inView: sectionTitleInView } = useInView({
@@ -357,6 +361,7 @@ function MyProjects() {
     {
       ProjectName: "Online Education Platform ",
       ProjectImage: "Education-Platform.png",
+
       ProjectDescription:
         "An interactive e-learning platform that provides a seamless and engaging experience for learners. It features a modern design and smooth navigation to deliver educational content efficiently.",
       links: [
