@@ -12,7 +12,9 @@ import {
   faLocation,
   faPaperPlane,
   faXmark,
-  faBars
+  faBars,
+  faWind,
+  faArrowUp
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -24,7 +26,8 @@ import {
   faCss3,
   faJs,
   faGitSquare,
-  faReact,
+  faReact
+
 } from "@fortawesome/free-brands-svg-icons";
 
 import { useState, useEffect } from "react";
@@ -141,6 +144,10 @@ function AchievementCounter({ TargetScore }) {
 
 // ---Description about me And Social icons display---
 function Description() {
+  const {ref :AchievedRef , inView:AchievedInView} = useInView({
+    triggerOnce:true,
+    threshold:0.6,
+  })
   return (
     // --description Paragraph--
     <motion.div
@@ -184,8 +191,9 @@ function Description() {
       <motion.div
         className="MyAchieved"
         //Achieved Display
+        ref={AchievedRef}
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{opacity:AchievedInView ? 1:0, y:AchievedInView? 0 :100 }}
         transition={{ duration: 1, ease: "easeInOut" }}
       >
         <ul>
@@ -303,8 +311,11 @@ function MySkills() {
   const SkillsObject = [
     { name: "HTML 5", img: "html.png" },
     { name: "CSS 3", img: "css.png" },
+    { name: "Tailwind", img: "tailwind.png" },
     { name: "JavaScript", img: "JS.png" },
     { name: "React JS", img: "reactjs.png" },
+    { name: "React Router", img: "react-router.svg" },
+    { name: "C", img: "C.png" },
     { name: "Figma", img: "figma.png" },
     { name: "Git", img: "git.png" },
 
@@ -358,6 +369,31 @@ function MySkills() {
 function MyProjects() {
   // array of my projects
   const ProjectsList = [
+    {
+      ProjectName: "َAtlas View Hotel ",
+      ProjectImage: "ATLAS-View-Hotel.png",
+
+      ProjectDescription:
+        
+"An interactive hotel booking website that offers users a smooth and engaging experience. It features a modern responsive design, seamless navigation with React Router, and a dynamic booking form with personalized confirmation messages.",
+      links: [
+        {
+          link: "https://github.com/aziz-boujaada/hotel-website.git",
+          linkIcon: faGithub,
+        },
+        {
+          link: "https://aziz-boujaada.github.io/hotel-website/",
+          linkIcon: faExternalLinkAlt,
+        },
+      ],
+      Technologies: [
+        
+        { ToolName: "Tailwind", ToolIcon: faWind },
+        { ToolName: "React", ToolIcon: faReact },
+        { ToolName: "JavaScript", ToolIcon: faJs },
+        { ToolName: "Git", ToolIcon: faGitSquare },
+      ],
+    },
     {
       ProjectName: "Online Education Platform ",
       ProjectImage: "Education-Platform.png",
@@ -468,7 +504,7 @@ function MyProjects() {
         { ToolName: "CSS 3", ToolIcon: faCss3 },
         { ToolName: "JavaScript", ToolIcon: faJs },
         { ToolName: "Git", ToolIcon: faGitSquare },
-        { ToolName: "React JS", ToolIcon: faReact },
+        { ToolName: "React", ToolIcon: faReact },
       ],
     },
   ];
@@ -478,7 +514,7 @@ function MyProjects() {
   });
   const { ref: projectsCardRef, inView: projectsCardInView } = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.1,
   });
   console.log("project show ," ,projectsCardInView)
   return (
@@ -644,6 +680,36 @@ function ContactMe() {
   );
 }
 
+//scroll To top button 
+function ScrollToTop(){
+   const [scrollBtnVisible ,setScrollBtnVisible] = useState(false);
+    useEffect(()=>{
+      const ToggleVisible = ()=>{
+         if(window.scrollY>100){
+          setScrollBtnVisible(true)
+         }else{
+          setScrollBtnVisible(false)
+         }
+      }
+      document.addEventListener("scroll" , ToggleVisible);
+      return ()=>{
+       document.removeEventListener("scroll" ,ToggleVisible)
+      }
+    },[])
+   const handleScroll = () =>{
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    })
+   }
+  return(
+    scrollBtnVisible && (
+      <div className="scrollTop_btn">
+        <button onClick={handleScroll}><FontAwesomeIcon icon={faArrowUp}/></button>
+      </div>
+    )
+  )
+}
                 // --- FOOTER --- 
   function Footer(){
     return(
@@ -713,6 +779,7 @@ function ContactMe() {
         <section className="FooterSection">
           <Footer />
         </section>
+        <ScrollToTop/>
       </>
     );
   }

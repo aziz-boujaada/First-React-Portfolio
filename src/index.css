@@ -20,7 +20,9 @@
   box-sizing: border-box;
 }
 
-
+body{
+  margin: 0 1em;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -209,7 +211,7 @@ button:focus-visible {
   width: 0;
   overflow: hidden;
   white-space: nowrap;
-  animation: typing 3s steps(20, end) forwards, blink 0.6s infinite;
+  animation: typing 3s steps( 20, end) forwards, blink 0.6s infinite;
 }
 
 /* Typing animation keyframes */
@@ -615,6 +617,16 @@ button:focus-visible {
   font-size: 20px;
   color: rgb(171, 170, 170);
 }
+.scrollTop_btn button{
+  position: fixed;
+  right: 1%;
+  bottom:5%;
+  background-color: #0e508a;
+  padding: 12px 16px;
+}
+.scrollTop_btn button:hover{
+  border: none;
+}
 
 /* Mobile responsive styles */
 @media (max-width: 480px) {
@@ -771,9 +783,9 @@ button:focus-visible {
   /* Switch skills to 2-column grid  */
   .Skills_cards {
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    gap: 15px;
     justify-content: center;
-    margin-left: 2em;
+    margin: 1em;
   }
 
   /* Remove grayscale effect  */
@@ -794,10 +806,14 @@ button:focus-visible {
 
   /* Stack contact sections  */
   .contact_container {
+    width: 100%;
     flex-direction: column;
     gap: 15px;
   }
-
+  .contact_information{
+    width: 100%;
+    padding: 1.5rem;
+  }
   /* Full-width contact form */
   .contact_form form {
     width: 100%;
