@@ -384,6 +384,8 @@ button:focus-visible {
 /* Skills section container */
 .SkillsSection {
   height: 100vh;
+
+  
   border-bottom: 1px solid gray;
 }
 
