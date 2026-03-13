@@ -214,7 +214,7 @@ function Education() {
   );
 }
 
-// Skills
+
 function Skills() {
   const skillCategories = [
     {
